@@ -39,7 +39,7 @@ function addTransactionDOM(transaction) {
 
   item.classList.add(transaction.amount < 0 ? 'minus' : 'plus');
   item.innerHTML = `
-    ${transaction.text} <span>${sign}${Math.abs(transaction.amount)}</span>
+    ${transaction.text} <span>${sign}₹${Math.abs(transaction.amount)}</span>
     <button class="delete-btn" onclick="removeTransaction(${transaction.id})">x</button>
   `;
 
@@ -58,9 +58,9 @@ function updateValues() {
     amounts.filter(item => item < 0).reduce((acc, item) => (acc += item), 0) * -1
   ).toFixed(2);
 
-  balance.innerText = `$${total}`;
-  money_plus.innerText = `+$${income}`;
-  money_minus.innerText = `-$${expense}`;
+  balance.innerText = `₹${total}`;
+  money_plus.innerText = `+₹${income}`;
+  money_minus.innerText = `-₹${expense}`;
 }
 
 function removeTransaction(id) {
